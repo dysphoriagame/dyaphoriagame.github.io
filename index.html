@@ -115,6 +115,10 @@ tooltip {
 
 $('#passage').ready( () => {
 	$('#passage').wrap('<div id="passage-container"></div>');
+	let level = 2;
+	Passage.levelUp = () => {
+		toastr.success("LEVEL UP!<br>You are now level " + (level++));	
+	};
 });
 
 $(document).on('hidepassage', () => {
@@ -176,10 +180,6 @@ $(document).on('showpassage:after', () => {
 	}
 	
 });
-
-
-
-
 
 
 
@@ -730,7 +730,9 @@ The goblin shaman gives one last squeak and keels over, overcome by the poison.
 &lt;/div&gt;
 &lt;div&gt;
 	“My apologies. My Mends and Blinds did not work very well, did they,” you mutter sheepishly. A small thought squirms in the back of your mind: “You wouldn’t be apologizing if you were a &lt;%= s.ROLE %&gt;, now would you?” You grind your teeth in [[frustration.]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="39" name="frustration." tags="" position="650,275" size="100,100">&lt;div&gt; “It was your first real adventure. Some recruits struggle a bit in the beginnin’,” Brutus says kindly.
+&lt;/div&gt;
+&lt;% Passage.levelUp(); %&gt;
+</tw-passagedata><tw-passagedata pid="39" name="frustration." tags="" position="650,275" size="100,100">&lt;div&gt; “It was your first real adventure. Some recruits struggle a bit in the beginnin’,” Brutus says kindly.
 &lt;/div&gt;
 &lt;div&gt;
 	“You’ll do better on the next quest, right, younglin’?” Brutus asks. His face is smiling, but his eyes—pinprick pupils against blistering green—are intense and unblinking. You can feel Orante’s cool gaze on you as well. The room suddenly feels too hot and small, the air itself stifled by the pressure.
@@ -839,7 +841,9 @@ The goblin shaman gives one last squeak and keels over, overcome by the poison.
             $(&#39;.&#39; + s.ROLE.toLowerCase()).fadeIn(0);
         }, 0);
     });
-%&gt;</tw-passagedata><tw-passagedata pid="44" name="fangs." tags="" position="900,275" size="100,100">&lt;div&gt;	
+%&gt;
+&lt;% Passage.levelUp(); %&gt;
+</tw-passagedata><tw-passagedata pid="44" name="fangs." tags="" position="900,275" size="100,100">&lt;div&gt;	
 	“This is true,” he mutters. “But we do not need another knight. I am the party’s knight. You are meant to be the party’s guardian.”
 &lt;/div&gt;
 &lt;div&gt;
